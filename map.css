@@ -24,3 +24,11 @@ html, body {
     height: 100%;
     pointer-events: none;
   }
+
+
+circle {
+  fill: steelblue;
+  fill-opacity: 65%;
+  stroke: white;
+  pointer-events: auto;
+}
