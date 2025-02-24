@@ -65,6 +65,9 @@ function computeStationTraffic(stations, trips) {
 
 map.on('load', async() => { 
 
+    let stationFlow = d3.scaleQuantize().domain([0, 1]).range([0, 0.5, 1]);
+
+
     map.addSource('boston_route', {
         type: 'geojson',
         data: 'https://bostonopendata-boston.opendata.arcgis.com/datasets/boston::existing-bike-network-2022.geojson?...'
@@ -134,7 +137,8 @@ map.on('load', async() => {
         .attr('fill', 'steelblue')  // Circle fill color
         .attr('stroke', 'white')    // Circle border color
         .attr('stroke-width', 1)    // Circle border thickness
-        .attr('opacity', 0.8);      // Circle opacity
+        .attr('opacity', 0.8)      // Circle opacity
+        .style("--departure-ratio", d => stationFlow(d.departures / d.totalTraffic));
 
         circles.each(function(d) {
             // Add <title> for browser tooltips
@@ -217,7 +221,10 @@ map.on('load', async() => {
         circles
           .data(filteredStations, (d) => d.short_name)
           .join('circle') // Ensure the data is bound correctly
-          .attr('r', (d) => radiusScale(d.totalTraffic)); // Update circle sizes
+          .attr('r', (d) => radiusScale(d.totalTraffic)) // Update circle sizes
+          .style('--departure-ratio', (d) =>
+            stationFlow(d.departures / d.totalTraffic),
+          );
     }
 
     timeSlider.addEventListener('input', updateTimeDisplay);

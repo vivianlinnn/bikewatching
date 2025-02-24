@@ -45,9 +45,37 @@ em {
   }
 
 
-circle {
+#map circle, .legend > div {
   fill: steelblue;
   fill-opacity: 65%;
   stroke: white;
   pointer-events: auto;
+
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+  fill: var(--color);
+}
+
+.legend {
+  display: flex;
+  gap: 1px;  /* Small gap between the swatches to prevent touching */
+  margin-block: 20px;  /* Space between the map and the legend */
+  width: 100%;
+}
+
+.legend > div {
+  display: flexbox;
+  flex: 1;  /* Each item takes equal space */
+  padding: 7px 30px; /* Horizontal padding is larger than vertical */
+  justify-content: center;
+  align-items: center;
+  color: white;  /* Default text color */
+  font-weight: bold;
+  text-align: center; /* Center the text inside each swatch */
+  background-color: var(--color);  /* Apply the dynamic background color */
 }
