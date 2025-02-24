@@ -8,6 +8,25 @@ html, body {
     align-items: center;     /* Center vertically */
     font-family: Courier;
   }
+
+header {
+  display: flex;
+  gap: 1em;
+  align-items: baseline;
+}
+
+label {
+  margin-left: auto;
+}
+
+time, em {
+  display: block; /* Prevents layout shift */
+}
+
+em {
+  color: gray; /* Lighter text for 'any time' */
+  font-style: italic;
+}
      
   #map {
     width: 100%;    /* Adjust width to your desired size */
@@ -19,7 +38,7 @@ html, body {
 
   #map svg {
     position: absolute;
-    z-index: 1;
+    z-index: 1000;
     width: 100%;
     height: 100%;
     pointer-events: none;

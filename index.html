@@ -11,11 +11,23 @@
 
 </head>
 <body>
-    <h1>🚴🏼‍♀️ Bikewatching</h1>
+
+    <header>
+        <h1>🚴🏼‍♀️ Bikewatching</h1>
+        <label>Filter by time: 
+            <input type=range min="-1" max="1440" value="-1" id="time-slider">
+            <em id="any-time">(any time)</em>
+            <time id="selected-time"></time>
+        </label>    
+
+    </header>
+    
 
     <div id="map">
         <svg></svg>
     </div>
+
+   
 
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
         <text y=".9em" font-size="90">❄️</text>
