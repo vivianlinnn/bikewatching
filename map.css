@@ -54,8 +54,8 @@ em {
 #map circle, .legend > div {
   /* fill: steelblue;*/
   fill-opacity: 70%;
-  /* stroke: white;
-  pointer-events: auto; */ 
+  /* stroke: white; */
+  pointer-events: auto;  
 
   --color-departures: steelblue;
   --color-arrivals: darkorange;
