@@ -13,6 +13,14 @@ header {
   display: flex;
   gap: 1em;
   align-items: baseline;
+
+  h1 {
+    align-items: flex-start;
+  }
+
+  label {
+    align-items: flex-end;
+  }
 }
 
 label {
@@ -46,10 +54,10 @@ em {
 
 
 #map circle, .legend > div {
-  fill: steelblue;
-  fill-opacity: 65%;
-  stroke: white;
-  pointer-events: auto;
+  /* fill: steelblue;*/
+  fill-opacity: 70%;
+  /* stroke: white;
+  pointer-events: auto; */ 
 
   --color-departures: steelblue;
   --color-arrivals: darkorange;
