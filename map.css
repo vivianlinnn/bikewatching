@@ -11,8 +11,8 @@ html, body {
 
 header {
   display: flex;
-  gap: 1em;
-  align-items: baseline;
+  gap: 15em;
+  align-items: center;
 
   h1 {
     align-items: flex-start;
@@ -20,12 +20,10 @@ header {
 
   label {
     align-items: flex-end;
+    margin-left: auto;
   }
 }
 
-label {
-  margin-left: auto;
-}
 
 time, em {
   display: block; /* Prevents layout shift */
