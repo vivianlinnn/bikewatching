@@ -21,7 +21,7 @@ function getCoords(station) {
     return { cx: x, cy: y };  // Return as object for use in SVG attributes
 }
 
-// let circles;
+let circles;
 let radiusScale;
 
 let filteredTrips = [];
@@ -169,7 +169,7 @@ map.on('load', async() => {
                 .range([0, 25]);
     
         // Append circles to the SVG for each station
-        const circles = svg.selectAll('circle')
+        circles = svg.selectAll('circle')
         .data(stations, (d) => d.short_name)
         .enter()
         .append('circle')
